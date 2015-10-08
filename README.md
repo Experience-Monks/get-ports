@@ -39,7 +39,7 @@ getPorts([ 8000, 9966 ], function (err, ports) {
 
 For the given array of `basePorts`, tries to find the next available port from each one. This keeps track of available ports to ensure there are no conflicts in the final result.
 
-If `maxPort` is specified, the portfinding will fail when it reaches that maximum port. Defaults to 60000.
+If the finite number `maxPort` is specified, the portfinding will fail when it reaches that maximum port. Defaults to 60000.
 
 The callback is called with `(err, ports)`, where `err` will be an Error if any of the portfindings failed (i.e. no open ports within range). If successful, `err` will be null and `ports` will be an array, parallel to `basePorts`, with the found port numbers.
 

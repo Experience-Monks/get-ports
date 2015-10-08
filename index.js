@@ -14,6 +14,9 @@ function getPorts (basePorts, maxPort, cb) {
   if (typeof cb !== 'function') {
     throw new TypeError('must provide callback function')
   }
+  if (!isFinite(maxPort)) {
+    throw new TypeError('maxPort must be a finite number')
+  }
 
   var usedPorts = []
   mapLimit(basePorts, 1, function (base, next) {
