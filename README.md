@@ -18,15 +18,16 @@ npm install get-ports --save
 
 The resulting `ports` array is parallel to your input (base) ports.
 
+For example, if port `8000` and `9966` are already in use:
+
 ```js
 var getPorts = require('get-ports')
 
-getPorts([ 9966, 3000 ], function (err, ports) {
+getPorts([ 8000, 9966 ], function (err, ports) {
   if (err) throw new Error('could not open servers')
   
-  var [ a, b ] = ports
-  console.log('server 1', a)
-  console.log('server 2', b)
+  console.log(ports)
+  //=> [ 8001, 9967 ]
 })
 ```
 
