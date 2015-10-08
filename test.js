@@ -14,6 +14,19 @@ test('gets multiple open ports', function (t) {
   })
 })
 
+test('failure cases', function (t) {
+  t.throws(function () {
+    getPorts(null)
+  }, 'invalid params')
+  t.throws(function () {
+    getPorts([ 2000 ], Infinity, function(){})
+  }, 'invalid maxPort')
+  t.throws(function () {
+    getPorts([ 2000 ], 8000, null)
+  }, 'invalid cb')
+  t.end()
+})
+
 test('gets multiple open ports', function (t) {
   t.plan(1)
   var server = net.createServer()
