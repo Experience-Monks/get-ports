@@ -1,6 +1,6 @@
 {
   "name": "get-ports",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "gets multiple open ports",
   "main": "index.js",
   "license": "MIT",
