@@ -19,7 +19,7 @@ test('failure cases', function (t) {
     getPorts(null)
   }, 'invalid params')
   t.throws(function () {
-    getPorts([ 2000 ], Infinity, function(){})
+    getPorts([ 2000 ], Infinity, function () {})
   }, 'invalid maxPort')
   t.throws(function () {
     getPorts([ 2000 ], 8000, null)
@@ -70,8 +70,9 @@ test('accepts range', function (t) {
 test('returns error when out of ports', function (t) {
   t.plan(1)
   var server = net.createServer()
-  server.listen(59998, function () {
-    getPorts([ 59998, 59998 ], function (err, ports) {
+  var maxPort = 65535 - 2
+  server.listen(maxPort, function () {
+    getPorts([ maxPort, maxPort ], function (err, ports) {
       server.close()
       if (!err) return t.fail(new Error('expected error, not ' + ports))
       t.ok(err instanceof Error, 'out of ports')
