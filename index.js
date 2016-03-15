@@ -1,6 +1,6 @@
 var mapLimit = require('map-limit')
 var net = require('net')
-var DEFAULT_MAX_PORT = 60000
+var DEFAULT_MAX_PORT = 65535
 
 module.exports = getPorts
 function getPorts (basePorts, maxPort, cb) {
